@@ -22,7 +22,7 @@ Hence subset is possible
 
 ## Thought Process
 
-- "To include, or not to include, that is the question." - ~~Prince Hamlet~~ _Arundhati, 2025_
+- "To include, or not to include, that is the question." - ~~Prince Hamlet~~ _Arundhati, 2025 BC (Before Compilation)_
 - Given an element `e` in `arr[]`, if `e <= sum`, we have the option to either include it or not include it
 - If `e > sum` we definitely don't include it
 - So through recursion we find, through both possibilities, if a solution is possible

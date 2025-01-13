@@ -7,3 +7,5 @@ This repository will contain all topics on DSA as I encounter them in my SDE jou
 ## Currently exploring:
 - Linked Lists
 - Dynamic Programming
+
+> PS: Beware of the puns, you won't see them coming.

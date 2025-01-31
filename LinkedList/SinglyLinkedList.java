@@ -99,6 +99,29 @@ public class SinglyLinkedList {
         }
     }
 
+    public void deleteByIndex(int pos){
+        if (head == null){
+            System.out.println("List is empty");
+            return;
+        }
+        if (pos == 0) {
+            this.head = head.next;
+            return;
+        }
+        Node current = head;
+
+        for(int i=0; current != null && i < pos-1; i++){
+            current = current.next;
+        }
+
+        if (current == null || current.next == null){
+            System.out.println("Invalid position");
+            return;
+        }
+
+        current.next = current.next.next;
+    }
+
     public void printList(){
         if (head == null) return;
 
@@ -129,5 +152,7 @@ public class SinglyLinkedList {
         SLL.printList();
         SLL.find(5);
         System.out.println("Linked List size: "+SLL.getSize());
+        SLL.deleteByIndex(1);
+        SLL.printList();
     }
 }

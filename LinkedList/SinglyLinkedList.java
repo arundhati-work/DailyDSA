@@ -45,6 +45,22 @@ public class SinglyLinkedList {
         current.next = temp;
     }
 
+    public void find(int data){
+        if (head == null) System.out.println("List is empty");
+
+        Node current = head;
+        int pos = 1;
+
+        while (current != null){
+            if (current.data == data){
+                System.out.println("Element "+data+" found at position "+pos);
+                break;
+            }
+            pos++;
+            current = current.next;
+        }
+    }
+
     public void deleteNode(int data){
         if (head == null) return;
         if (head.data == data) {
@@ -55,7 +71,7 @@ public class SinglyLinkedList {
         Node current = head;
 
         while (current != null){
-            if (current.next.data == data){
+            if ( (current.next != null) && (current.next.data == data)){
                 current.next = current.next.next;
                 return;
             }
@@ -91,5 +107,6 @@ public class SinglyLinkedList {
         SLL.printList();
         SLL.deleteNode(10);
         SLL.printList();
+        SLL.find(5);
     }
 }

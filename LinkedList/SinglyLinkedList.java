@@ -45,6 +45,24 @@ public class SinglyLinkedList {
         current.next = temp;
     }
 
+    public void deleteNode(int data){
+        if (head == null) return;
+        if (head.data == data) {
+            head = head.next;
+            return;
+        }
+
+        Node current = head;
+
+        while (current != null){
+            if (current.next.data == data){
+                current.next = current.next.next;
+                return;
+            }
+            current = current.next;
+        }
+    }
+
     public void printList(){
         if (head == null) return;
 
@@ -54,6 +72,7 @@ public class SinglyLinkedList {
             System.out.print(current.data+" ");
             current = current.next;
         }
+        System.out.println();
     }
 
     public static void main(String[] args){
@@ -67,6 +86,10 @@ public class SinglyLinkedList {
         SLL.insertAtTail(30);
         SLL.insertAtTail(35);
         SLL.insertAtTail(40);
+        SLL.printList();
+        SLL.deleteNode(25);
+        SLL.printList();
+        SLL.deleteNode(10);
         SLL.printList();
     }
 }

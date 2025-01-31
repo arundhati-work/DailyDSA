@@ -45,8 +45,11 @@ public class SinglyLinkedList {
         current.next = temp;
     }
 
-    public void find(int data){
-        if (head == null) System.out.println("List is empty");
+    public int find(int data){
+        if (head == null) {
+            System.out.println("List is empty");
+            return -1;
+        }
 
         Node current = head;
         int pos = 1;
@@ -54,11 +57,28 @@ public class SinglyLinkedList {
         while (current != null){
             if (current.data == data){
                 System.out.println("Element "+data+" found at position "+pos);
-                break;
+                return pos;
             }
             pos++;
             current = current.next;
         }
+
+        System.out.println("Element not found");
+        return -1;
+    }
+
+    public int getSize(){
+        if (head == null) return 0;
+
+        int size = 0;
+        Node current = head;
+
+        while (current != null){
+            size++;
+            current = current.next;
+        }
+
+        return size;
     }
 
     public void deleteNode(int data){
@@ -108,5 +128,6 @@ public class SinglyLinkedList {
         SLL.deleteNode(10);
         SLL.printList();
         SLL.find(5);
+        System.out.println("Linked List size: "+SLL.getSize());
     }
 }

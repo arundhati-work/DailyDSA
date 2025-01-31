@@ -29,6 +29,22 @@ public class SinglyLinkedList {
         this.head = current;
     }
 
+    public void insertAtTail(int data){
+        if (head == null){
+            this.head = new Node(data);
+            return;
+        }
+
+        Node current = head;
+        Node temp = new Node(data);
+
+        while(current.next != null){
+            current = current.next;
+        }
+
+        current.next = temp;
+    }
+
     public void printList(){
         if (head == null) return;
 
@@ -47,6 +63,10 @@ public class SinglyLinkedList {
         SLL.insertAtHead(10);
         SLL.insertAtHead(15);
         SLL.insertAtHead(20);
+        SLL.insertAtTail(25);
+        SLL.insertAtTail(30);
+        SLL.insertAtTail(35);
+        SLL.insertAtTail(40);
         SLL.printList();
     }
 }

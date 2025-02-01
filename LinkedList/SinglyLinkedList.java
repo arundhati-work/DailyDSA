@@ -122,6 +122,25 @@ public class SinglyLinkedList {
         current.next = current.next.next;
     }
 
+    public void reverseList(){
+        if (head == null || head.next==null) return;
+        Node prev = head;
+
+        Node curr = head.next;
+        Node post = head.next.next;
+        prev.next = null;
+
+        while (curr!=null){
+            curr.next = prev;
+            prev = curr;
+            curr = post;
+            if (curr != null)
+                post = post.next;
+        }
+
+        this.head = prev;
+    }
+
     public void printList(){
         if (head == null) return;
 
@@ -153,6 +172,8 @@ public class SinglyLinkedList {
         SLL.find(5);
         System.out.println("Linked List size: "+SLL.getSize());
         SLL.deleteByIndex(1);
+        SLL.printList();
+        SLL.reverseList();
         SLL.printList();
     }
 }

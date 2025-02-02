@@ -141,6 +141,20 @@ public class SinglyLinkedList {
         this.head = prev;
     }
 
+    public void reverseRecursive(){
+        this.head = revRec(this.head);
+    }
+
+    public Node revRec(Node curr){
+        if (curr==null || curr.next==null) return curr;
+
+        Node newHead = revRec(curr.next);
+
+        curr.next.next = curr;
+        curr.next = null;
+        return newHead;
+    }
+
     public void printList(){
         if (head == null) return;
 
@@ -174,6 +188,8 @@ public class SinglyLinkedList {
         SLL.deleteByIndex(1);
         SLL.printList();
         SLL.reverseList();
+        SLL.printList();
+        SLL.reverseRecursive();
         SLL.printList();
     }
 }

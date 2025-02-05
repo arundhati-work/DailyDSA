@@ -5,18 +5,13 @@ import LinkedList.MergeLists.ListNode;
 public class palindrome {
     public ListNode middle(ListNode head){
         if (head == null || head.next == null) return head;
-
-        ListNode prev = null;
         ListNode tortoise = head;
         ListNode hare = head;
 
         while (hare != null && hare.next != null){
-            prev = tortoise;
             tortoise = tortoise.next;
             hare = hare.next.next;
         }
-
-        if (prev!= null) prev.next = null;
 
         return tortoise;
     }
@@ -43,7 +38,7 @@ public class palindrome {
         ListNode mid = middle(head);
         ListNode rev = reverse(mid);
 
-        while (head!= null && rev != null){
+        while (rev != null){
             if (head.val != rev.val) return false;
             head = head.next;
             rev = rev.next;
